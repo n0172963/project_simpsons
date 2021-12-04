@@ -33,32 +33,28 @@
                   <h3 class="form__heading"> Select characters to show </h3>
                   <form method="get">
                     <ul class="form__items">
-                      <li class="form__item">
-                        <label for="homer"> Homer Simpson </label>
-                        <input id="homer" type="checkbox" name="homer" checked>
-                      </li>
-                      <li class="form__item">
-                        <label for="marge"> Marge Simpson </label>
-                        <input id="marge" type="checkbox" name="marge" checked>
-                      </li>
-                      <li class="form__item">
-                        <label for="bart"> Bart Simpson </label>
-                        <input id="bart" type="checkbox" name="bart" checked>
-                      </li>
-                      <li class="form__item">
-                        <label for="lisa"> Lisa Simpson </label>
-                        <input id="lisa" type="checkbox" name="lisa" checked>
-                      </li>
-                      <li class="form__item">
-                        <label for="maggie"> Maggie Simpson </label>
-                        <input id="maggie" type="checkbox" name="maggie" checked>
-                      </li>
-                      <li class="form__item">
-                        <label for="moe"> Moe Szyslak </label>
-                        <input id="moe" type="checkbox" name="moe" checked>
-                      </li>
+                      <?php 
+                        foreach ($data as $key => $value){
+                          if(!empty($_GET[$key])){
+                            echo(
+                              '<li class="form__item">
+                              <label for="homer">'.$value['first_name'].' '.$value['last_name'].'</label>
+                              <input id="'.$key.'" type="checkbox" name="'.$key.'" checked>
+                              </li>'
+                            );
+                          }
+                          else{
+                            echo(
+                              '<li class="form__item">
+                              <label for="homer">'.$value['first_name'].' '.$value['last_name'].'</label>
+                              <input id="'.$key.'" type="checkbox" name="'.$key.'">
+                              </li>'
+                            );
+                          }
+                        }
+                      ?>
                     </ul>
-                    <input class="form__button" type="submit" value="Show Characters">
+                    <input class="form__button" type="submit">
                   </form>
                 </div>
               </div>
