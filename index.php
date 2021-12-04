@@ -13,6 +13,13 @@
         <img class="site-header__logo" src="images/logo.svg" alt="Logo">
       </a>
     </header>
+    <?php
+
+    $string = file_get_contents("characters.json");
+    $data = json_decode($string, true);
+
+    ?>
+
     <div id="content" class="site-content">
       <div id="primary" class="content-area">
         <div id="main" class="site-main">
@@ -160,4 +167,3 @@
       </div>
     </div>
   </body>
-</html>
