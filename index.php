@@ -14,7 +14,7 @@
       </a>
     </header>
     <?php
-
+  //load data from file characters.json
     $string = file_get_contents("characters.json");
     $data = json_decode($string, true);
 
@@ -34,6 +34,7 @@
                   <form method="get">
                     <ul class="form__items">
                       <?php 
+                        //show checkbox from data
                         foreach ($data as $key => $value){
                           if(!empty($_GET[$key])){
                             echo(
@@ -64,6 +65,7 @@
             <div class="characters__row layout-row">
               <ul class="characters__items">
                 <?php
+                  //show profile from get method
                   foreach ($data as $key => $value){
                     $firstname = $value['first_name'];
                     if(!empty($_GET[$key])){
